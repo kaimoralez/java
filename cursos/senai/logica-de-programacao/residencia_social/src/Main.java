@@ -23,7 +23,7 @@ public class Main {
             valor = consumo * 7.31;
         }
 
-        System.out.printf("Total a pagar: R$ %.2f\n", consumo);
+        System.out.printf("Total a pagar: R$ %.2f\n", valor);
 
     }
 }
