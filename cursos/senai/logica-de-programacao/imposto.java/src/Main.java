@@ -18,7 +18,9 @@ public class Main {
         } else if (salario <= 2666.68) {
             inss = salario * 0.09;
         } else if (salario <= 4000.03 ) {
-            inss = salario * 0.12;
+            inss =
+
+                    reajsalario * 0.12;
         } else {
             inss = salario * 0.14;
         }
