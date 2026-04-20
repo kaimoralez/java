@@ -6,11 +6,9 @@ public class Main {
         Scanner scanner = new Scanner (System.in);
 
         double raio = scanner.nextDouble();
-        double volume = (4.0/3) * Math.PI * Math.pow(raio, 3);
+        double volume = (4.0/3) * 3.14159 * Math.pow(raio, 3);
 
         System.out.printf("VOLUME = %.3f\n", volume);
         scanner.close();
-
-
     }
 }
