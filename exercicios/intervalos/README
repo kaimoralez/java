@@ -1,0 +1,75 @@
+# 📊 Intervalos — Lógica de Programação
+
+## 📌 Sobre
+
+Esta pasta contém exercícios focados em **lógica com intervalos**, um dos conceitos mais importantes na programação.
+
+Intervalos são utilizados para classificar valores dentro de faixas específicas, sendo muito comuns em sistemas reais.
+
+---
+
+## 🧠 O que são intervalos?
+
+Intervalos representam **faixas de valores**, como por exemplo:
+
+* [0,25]
+* (25,50]
+* (50,75]
+* (75,100]
+
+### 🔍 Observação importante:
+
+* `[` ou `]` → inclui o valor
+* `(` ou `)` → não inclui o valor
+
+---
+
+## 🚀 O que estou praticando aqui
+
+* Estruturas condicionais (`if`, `else if`)
+* Operadores lógicos (`&&`)
+* Comparação de valores
+* Organização de regras de decisão
+* Pensamento lógico aplicado
+
+---
+
+## 💡 Aplicações no mundo real
+
+Esses conceitos são usados em:
+
+* 💰 Sistemas de imposto (faixa de renda)
+* 🎓 Classificação de notas
+* 🛒 Sistemas de desconto
+* 🚗 Controle de velocidade
+* 📊 Análise de dados
+
+---
+
+## 🎯 Objetivo
+
+Desenvolver a capacidade de:
+
+* Interpretar problemas
+* Criar regras lógicas
+* Evitar sobreposição de condições
+* Escrever código claro e escalável
+
+---
+
+## 📚 Observação
+
+A lógica de intervalos é uma das bases para:
+
+* algoritmos
+* validações
+* regras de negócio
+* entrevistas técnicas
+
+---
+
+## 🚀 Próximos passos
+
+* Trabalhar com múltiplas condições
+* Combinar intervalos com cálculos
+* Resolver problemas mais próximos do mundo real
