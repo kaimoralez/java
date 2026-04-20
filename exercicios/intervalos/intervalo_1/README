@@ -1,0 +1,32 @@
+# 📊 Intervalo de Valores
+
+## 📌 Descrição
+Este exercício consiste em ler um número e determinar em qual intervalo ele se encontra.
+
+## 🚀 Conceitos utilizados
+- Entrada de dados com Scanner
+- Variáveis do tipo double
+- Estruturas condicionais (if / else if)
+- Operadores lógicos
+
+## 🧠 Lógica da solução
+1. Ler um número decimal
+2. Verificar em qual intervalo ele se encaixa:
+   - [0,25]
+   - (25,50]
+   - (50,75]
+   - (75,100]
+3. Caso não esteja em nenhum, exibir "Fora de intervalo"
+
+## 💻 Exemplos
+Entrada:
+25.01
+
+Saída:
+Intervalo (25,50]
+
+## 📚 Aprendizados
+- Uso de intervalos com operadores lógicos
+- Diferença entre >= e >
+- Importância da ordem das condições
+- Atenção à formatação exata da saída
