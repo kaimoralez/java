@@ -12,11 +12,9 @@ O sistema realiza as seguintes validações:
 ✔ Garante que todos os caracteres são numéricos
 ✔ Detecta CPFs com todos os números iguais (ex: 11111111111)
 ✔ Calcula e valida os dois dígitos verificadores
-▶️ Como executar
-Clone o repositório:
-git clone https://github.com/seu-usuario/validar-cpf
-Abra o projeto em uma IDE (IntelliJ, VS Code, etc.)
-Execute o arquivo Main.java
+
+
+
 🧪 Exemplo de uso
 
 Entrada:
