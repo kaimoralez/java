@@ -13,9 +13,9 @@ public class ex01 {
         // Um array multimencional é um array de arrays e
         // podemos instanciar as linhas com tamanhos diferentes...
 
-        String[] linguagens = {"Java", "Python", "C#"};
-        int tamanho = linguagens.length();
-        System.out.println(tamanho);
+//        String[] linguagens = {"Java", "Python", "C#"};
+//        int tamanho = linguagens.length();
+//        System.out.println(tamanho);
         //Length é uma propriedade então não deve ter parênteses
         //o correto seria apenas linguagens.length
 
