@@ -54,4 +54,15 @@ public class Jogo {
     public void setPlataforma(String plataforma) {
         this.plataforma = plataforma;
     }
+
+    @Override
+    public String toString() {
+        return "======================" +
+                "Nome:'" + nome + '\'' +
+                "\n Genero ='" + genero + '\'' +
+                "\n Ano de lançamento:" + anoLancamento +
+                "\n Nota:" + nota +
+                "\n Plataforma:" + plataforma + '\'' +
+                "\n =============================";
+    }
 }

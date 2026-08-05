@@ -14,4 +14,10 @@ public class CadastroJogo {
         jogos.add(jogo);
     }
 
+    public void listar(){
+        for(Jogo jogo:jogos){
+            System.out.println(jogo);
+        }
+    }
+
 }
