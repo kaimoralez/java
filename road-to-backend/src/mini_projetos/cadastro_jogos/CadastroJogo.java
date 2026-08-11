@@ -20,4 +20,13 @@ public class CadastroJogo {
         }
     }
 
+    public Jogo buscar(String jogoBuscado){
+        for(Jogo jogo: jogos){
+            if (jogo.getNome().equals(jogoBuscado)){
+                return jogo;
+            }
+        }
+        return null;
+    }
+
 }
