@@ -8,6 +8,7 @@ public class ContaBancaria {
     public ContaBancaria(String titular, double limite) {
         this.titular = titular;
         this.limite = limite;
+
     }
 
     public void depositar(double valor) {
@@ -18,16 +19,21 @@ public class ContaBancaria {
         }
     }
 
-    public double sacar(double valor) {
+    public boolean sacar(double valor) {
         double total = saldo + limite;
+        if(valor <= 0){
+            return false;
+        }
+
         if (valor <= saldo){
             saldo = saldo - valor;
-            return;
-        } else if (valor > saldo && valor <= (saldo + limite)) {
-            limite = (saldo + limite) - valor;
+            return true;
+        } else if (valor <= total) {
+            limite = total - valor;
             saldo = 0;
+            return true;
         } else{
-            return ;
+            return false;
         }
     }
 
