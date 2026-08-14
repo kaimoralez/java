@@ -12,10 +12,10 @@ public class Menu {
         int opcao = -1;
         do {
             System.out.println("======== Menu ========");
-            System.out.println("1 - Adicionar novo jogo");
-            System.out.println("2 - Listar jogos");
-            System.out.println("3 - Buscar jogo");
-            System.out.println("0 - Sair");
+            System.out.println("1 | Adicionar novo jogo");
+            System.out.println("2 | Listar jogos");
+            System.out.println("3 | Buscar jogo");
+            System.out.println("0 | Sair");
 
             opcao = scanner.nextInt();
 
