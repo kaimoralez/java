@@ -58,11 +58,10 @@ public class Jogo {
     @Override
     public String toString() {
         return "======================" +
-                "Nome:'" + nome + '\'' +
-                "\n Genero ='" + genero + '\'' +
-                "\n Ano de lançamento:" + anoLancamento +
-                "\n Nota:" + nota +
-                "\n Plataforma:" + plataforma + '\'' +
-                "\n =============================";
+                "\n Nome:'" + nome + '\'' +
+                "\n Genero: '" + genero + '\'' +
+                "\n Ano de lançamento: " + anoLancamento +
+                "\n Nota: " + nota +
+                "\n Plataforma: '" + plataforma + '\'';
     }
 }
