@@ -1,4 +1,4 @@
-package atv07;
+package atv06;
 
 public class Main {
     static void main() {
