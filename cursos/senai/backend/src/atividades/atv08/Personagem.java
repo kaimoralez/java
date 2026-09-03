@@ -33,27 +33,45 @@ public class Personagem {
 
     public int receberDano(int dano) {
         if(dano < vida){
-            return vida = vida - dano;
+
+
+
+
+
+            vida = vida - dano;
+            return vida;
         }else{
-            return vida = 0;
+            vida = 0;
+            return vida;
         }
     }
 
-    public int descansar(int descansa){
-        if ((energia + descansa) <= 100){
-            return energia = energia + descansa;
+    public int descansar(){
+        if ((energia + 10) <= 100){
+            energia = energia + 10;
+            return energia;
         }else{
-            return energia = 100;
+            energia = 100;
+            return energia;
         }
     }
 
     public int atacar (int ataque){
         double totalAtaque = 0.5 * ataque;
 
-        if(energia == 0){
+        if(totalAtaque > energia){
             return 0;
         }else{
-            return energia = energia - (int)totalAtaque;
+            energia = energia - (int)totalAtaque;
+            return (int)totalAtaque;
+        }
+    }
+
+    public String getStatus(){
+        if(vida > 0 ){
+            return "Vivo";
+        } else{
+            return "Derrotado";
         }
     }
 
