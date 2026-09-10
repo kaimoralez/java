@@ -66,7 +66,8 @@ Clique com o botão direito sobre o arquivo Main.java e selecione Run 'Main.main
 
 5. Exemplos de Execução
 Saída no Console (Execução com Sucesso)
-Plaintext
+
+
 ===== Funcionario =====
 Nome = Kaique
 Cargo = Vendedor
