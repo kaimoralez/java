@@ -55,7 +55,9 @@ Execute a aplicação informando o classpath e a classe principal:
 
 Bash
 java -cp bin atividades.atv09.Main
-Opção 2: IntelliJ IDEA
+
+---
+### Opção 2: IntelliJ IDEA
 Abra a pasta do repositório no IntelliJ (File > Open > selecione a pasta cursos).
 
 No painel Project à esquerda, navegue pelo caminho:
@@ -64,8 +66,9 @@ senai ➔ backend ➔ src ➔ atividades ➔ atv09 ➔ Main.java.
 
 Clique com o botão direito sobre o arquivo Main.java e selecione Run 'Main.main()' (ou clique no ícone verde de Play ao lado da assinatura da classe/método main).
 
-5. Exemplos de Execução
-Saída no Console (Execução com Sucesso)
+---
+##5. Exemplos de Execução
+###Saída no Console (Execução com Sucesso)
 
 
 ===== Funcionario =====
@@ -91,8 +94,8 @@ Remuneração = R$ 12000,00
 
 Remuneração total dos funcionários = R$ 39775,00
 
-
-Demonstração de Tratamento de Dados Inválidos
+---
+### Demonstração de Tratamento de Dados Inválidos
 Tentativas de instanciação fora das regras de negócio disparam exceções interceptáveis:
 
 - Nome vazio:
@@ -100,18 +103,21 @@ Tentativas de instanciação fora das regras de negócio disparam exceções int
 new Desenvolvedor("", "12345678900", 5000.0)
 
 Retorno: IllegalArgumentException: O nome não pode estar em branco
+---
 
 - CPF vazio:
 
 new Gerente("Mariana", "", 8000.0)
 
 Retorno: IllegalArgumentException: O cpf não pode ser em branco
+---
 
 - Salário inválido:
 
 new Vendedor("Roberto", "12345678900", 0.0, 5000.0)
 
 Retorno: IllegalArgumentException: O salário não pode ser igual a 0
+---
 
 - Vendas negativas:
 
