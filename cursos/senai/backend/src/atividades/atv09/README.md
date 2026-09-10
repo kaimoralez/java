@@ -67,8 +67,8 @@ senai ➔ backend ➔ src ➔ atividades ➔ atv09 ➔ Main.java.
 Clique com o botão direito sobre o arquivo Main.java e selecione Run 'Main.main()' (ou clique no ícone verde de Play ao lado da assinatura da classe/método main).
 
 ---
-##5. Exemplos de Execução
-###Saída no Console (Execução com Sucesso)
+## 5. Exemplos de Execução
+### Saída no Console (Execução com Sucesso)
 
 
 ===== Funcionario =====
