@@ -1,76 +1,248 @@
-Markdown
 # Sistema de Folha de Pagamento em Java
 
-## 1. Objetivo do Sistema
-Aplicação desenvolvida para gerenciar e calcular a folha de pagamento de diferentes colaboradores de uma empresa, aplicando os pilares da Programação Orientada a Objetos (POO) em Java. O sistema consolida dados contratuais, calcula bonificações específicas para cada cargo, valida regras de entrada e exibe o holerite detalhado de cada profissional, além do custo total da folha.
+Aplicação desenvolvida em **Java** para gerenciamento e cálculo da folha de pagamento de diferentes colaboradores de uma empresa.
+
+O projeto tem como principal objetivo aplicar conceitos de **Programação Orientada a Objetos (POO)**, utilizando encapsulamento, abstração, herança e polimorfismo.
 
 ---
 
-## 2. Regras de Negócio e Bonificação
+## 📌 Objetivo do Sistema
 
-* **Gerente:** Recebe um adicional de **20%** sobre o seu salário base.
-* **Desenvolvedor:** Recebe um adicional de **10%** sobre o seu salário base.
-* **Vendedor:** Recebe uma comissão de **5%** calculada sobre o **total vendido no mês**, mantendo seu salário base fixo.
-* **Remuneração Total:** É a soma direta do salário base com o valor da bonificação/comissão calculada.
+O sistema permite:
+
+- Cadastrar diferentes tipos de funcionários;
+- Armazenar dados contratuais dos colaboradores;
+- Calcular bonificações específicas de cada cargo;
+- Calcular a remuneração total de cada funcionário;
+- Validar dados de entrada;
+- Exibir o holerite detalhado de cada profissional;
+- Calcular o custo total da folha de pagamento.
 
 ---
 
-## 3. Aplicação dos Pilares de POO
+## 💰 Regras de Negócio
+
+Cada cargo possui uma regra específica para cálculo da bonificação:
+
+| Cargo | Regra de Bonificação |
+|---|---|
+| **Gerente** | Adicional de **20%** sobre o salário base |
+| **Desenvolvedor** | Adicional de **10%** sobre o salário base |
+| **Vendedor** | Comissão de **5%** sobre o total vendido no mês |
+
+### Remuneração Total
+
+A remuneração total é calculada pela soma:
+
+```text
+Remuneração Total = Salário Base + Bonificação/Comissão
+```
+
+No caso do **Vendedor**, a comissão é calculada sobre o total vendido no mês, enquanto o salário base permanece fixo.
+
+---
+
+## 🧩 Aplicação dos Pilares de POO
 
 ### Encapsulamento
-* **Atributos Privados:** Campos como `nome`, `cpf`, `salario` (em `Funcionario`) e `totalMes` (em `Vendedor`) utilizam o modificador `private`, impedindo acesso ou alteração direta fora de seus escopos.
-* **Validação no Construtor:** O estado inicial dos objetos é protegido defensivamente. Tentativas de cadastrar nomes em branco, CPFs vazios, salários $\le 0$ ou valores de vendas negativos disparam `IllegalArgumentException`.
-* **Acesso Controlado:** Métodos seletores (`getters`) expõem apenas as informações necessárias para leitura.
+
+O projeto utiliza encapsulamento para proteger os dados dos funcionários.
+
+- Atributos como `nome`, `cpf` e `salario`, presentes em `Funcionario`, são definidos como `private`.
+- O atributo `totalMes`, presente em `Vendedor`, também possui acesso restrito.
+- Os dados não podem ser alterados diretamente fora de suas respectivas classes.
+- O acesso às informações é realizado por meio de métodos `getters`.
+- Os construtores realizam validações para impedir a criação de objetos com dados inválidos.
+
+Exemplos de validações:
+
+- Nome não pode estar em branco;
+- CPF não pode estar vazio;
+- Salário deve ser maior que zero;
+- Valor total de vendas não pode ser negativo.
+
+Quando uma regra é violada, o sistema lança uma `IllegalArgumentException`.
+
+---
 
 ### Abstração
-* **Classe Abstrata (`Funcionario`):** Funciona como a espinha dorsal do sistema, impedindo instanciações genéricas (`new Funcionario(...)` é proibido pelo compilador).
-* **Métodos Abstratos:** Os métodos `calcularBonificacao()` e `cargo()` definem um contrato obrigatório. A classe mãe estabelece *o que* deve ser feito, mas delega *como* fazer para as classes que possuem a responsabilidade real do cálculo.
 
-### Herança e Polimorfismo
-* **Reuso de Código:** `Gerente`, `Desenvolvedor` e `Vendedor` estendem `Funcionario` via `extends`, reutilizando a infraestrutura de dados base e o fluxo centralizado de `exibirHolerite()`.
-* **Polimorfismo:** Na classe `Main`, uma única lista genérica (`ArrayList<Funcionario>`) armazena instâncias heterogêneas. Ao iterar sobre a coleção, chamadas a `f.exibirHolerite()` e `f.calcularRemuneracaoTotal()` resolvem dinamicamente a versão correta do método de cada classe filha em tempo de execução, sem necessidade de condicionais manuais (`if/else`).
+A classe `Funcionario` é definida como uma **classe abstrata**.
+
+```java
+public abstract class Funcionario
+```
+
+Isso impede que um funcionário genérico seja instanciado diretamente:
+
+```java
+new Funcionario(...);
+```
+
+A classe também define métodos abstratos que estabelecem um contrato para suas subclasses:
+
+```java
+public abstract double calcularBonificacao();
+
+public abstract String cargo();
+```
+
+Dessa forma, `Funcionario` define **o que deve ser feito**, enquanto cada classe filha define **como a operação deve ser realizada**.
 
 ---
 
-## 4. Como Compilar e Executar
+### Herança
+
+As classes:
+
+- `Gerente`
+- `Desenvolvedor`
+- `Vendedor`
+
+herdam da classe `Funcionario` utilizando `extends`.
+
+```java
+public class Gerente extends Funcionario
+```
+
+```java
+public class Desenvolvedor extends Funcionario
+```
+
+```java
+public class Vendedor extends Funcionario
+```
+
+Isso permite reutilizar atributos, métodos e comportamentos comuns entre os diferentes tipos de funcionários.
+
+---
+
+### Polimorfismo
+
+O polimorfismo é utilizado principalmente na classe `Main`.
+
+Uma única lista do tipo `Funcionario` pode armazenar diferentes subclasses:
+
+```java
+ArrayList<Funcionario> funcionarios
+```
+
+Por exemplo:
+
+```java
+funcionarios.add(new Gerente(...));
+funcionarios.add(new Desenvolvedor(...));
+funcionarios.add(new Vendedor(...));
+```
+
+Ao percorrer a lista:
+
+```java
+for (Funcionario f : funcionarios) {
+    f.exibirHolerite();
+}
+```
+
+Java identifica em tempo de execução qual implementação deve ser utilizada.
+
+Assim, `calcularBonificacao()` executará automaticamente a regra correspondente ao cargo, sem a necessidade de utilizar vários `if/else` para identificar o tipo de funcionário.
+
+---
+
+## 📂 Estrutura do Projeto
+
+A atividade está localizada no seguinte diretório:
+
+```text
+backend/
+└── src/
+    └── atividades/
+        └── atv09/
+            ├── Funcionario.java
+            ├── Gerente.java
+            ├── Desenvolvedor.java
+            ├── Vendedor.java
+            └── Main.java
+```
+
+---
+
+## ⚙️ Como Compilar e Executar
 
 ### Pré-requisitos
-* Java Development Kit (JDK) versão 17 ou superior instalado.
-* Git instalado.
-* Terminal/Prompt de comando ou IntelliJ IDEA.
+
+Para executar o projeto, é necessário ter instalado:
+
+- **Java JDK 17 ou superior**
+- **Git**
+- Terminal/Prompt de Comando ou **IntelliJ IDEA**
 
 ---
 
-### Opção 1: Linha de Comando (Terminal)
+### 💻 Opção 1 — Linha de Comando
 
-1. Clone o repositório e navegue até a pasta raiz do módulo:
-   ```bash
-   git clone [https://github.com/kaimoralez/cursos.git](https://github.com/kaimoralez/cursos.git)
-   cd cursos/senai/backend
-Compile os arquivos fonte gerando os binários na pasta bin:
+Clone o repositório:
 
-Bash
+```bash
+git clone https://github.com/kaimoralez/cursos.git
+```
+
+Acesse o diretório do projeto:
+
+```bash
+cd cursos/senai/backend
+```
+
+Compile os arquivos Java:
+
+```bash
 javac -d bin src/atividades/atv09/*.java
-Execute a aplicação informando o classpath e a classe principal:
+```
 
-Bash
+Os arquivos compilados serão gerados dentro da pasta `bin`.
+
+Execute a aplicação:
+
+```bash
 java -cp bin atividades.atv09.Main
+```
 
 ---
-### Opção 2: IntelliJ IDEA
-Abra a pasta do repositório no IntelliJ (File > Open > selecione a pasta cursos).
 
-No painel Project à esquerda, navegue pelo caminho:
+### 🧠 Opção 2 — IntelliJ IDEA
 
-senai ➔ backend ➔ src ➔ atividades ➔ atv09 ➔ Main.java.
+1. Abra o **IntelliJ IDEA**.
+2. Selecione **File > Open**.
+3. Abra a pasta `cursos`.
+4. No painel **Project**, navegue até:
 
-Clique com o botão direito sobre o arquivo Main.java e selecione Run 'Main.main()' (ou clique no ícone verde de Play ao lado da assinatura da classe/método main).
+```text
+senai
+└── backend
+    └── src
+        └── atividades
+            └── atv09
+                └── Main.java
+```
+
+5. Clique com o botão direito em `Main.java`.
+6. Selecione:
+
+```text
+Run 'Main.main()'
+```
+
+Também é possível executar pelo botão verde de **Play ▶** ao lado do método `main`.
 
 ---
-## 5. Exemplos de Execução
-### Saída no Console (Execução com Sucesso)
 
+## 🖥️ Exemplos de Execução
 
+### Execução com Sucesso
+
+Exemplo de saída no console:
+
+```text
 ===== Funcionario =====
 Nome = Kaique
 Cargo = Vendedor
@@ -93,34 +265,99 @@ Bonificação = R$ 2000,00
 Remuneração = R$ 12000,00
 
 Remuneração total dos funcionários = R$ 39775,00
+```
 
 ---
-### Demonstração de Tratamento de Dados Inválidos
-Tentativas de instanciação fora das regras de negócio disparam exceções interceptáveis:
 
-- Nome vazio:
+## 🚨 Tratamento de Dados Inválidos
 
-new Desenvolvedor("", "12345678900", 5000.0)
+O sistema realiza validações durante a criação dos objetos.
 
-Retorno: IllegalArgumentException: O nome não pode estar em branco
+Quando os dados não atendem às regras de negócio, uma `IllegalArgumentException` é lançada.
+
+### Nome vazio
+
+```java
+new Desenvolvedor("", "12345678900", 5000.0);
+```
+
+Retorno:
+
+```text
+IllegalArgumentException: O nome não pode estar em branco
+```
+
+### CPF vazio
+
+```java
+new Gerente("Mariana", "", 8000.0);
+```
+
+Retorno:
+
+```text
+IllegalArgumentException: O cpf não pode ser em branco
+```
+
+### Salário inválido
+
+```java
+new Vendedor("Roberto", "12345678900", 0.0, 5000.0);
+```
+
+Retorno:
+
+```text
+IllegalArgumentException: O salário não pode ser igual a 0
+```
+
+### Valor de vendas negativo
+
+```java
+new Vendedor("Roberto", "12345678900", 3000.0, -500.0);
+```
+
+Retorno:
+
+```text
+IllegalArgumentException: O valor é invalido
+```
+
 ---
 
-- CPF vazio:
+## 🛠️ Tecnologias Utilizadas
 
-new Gerente("Mariana", "", 8000.0)
+- **Java 17+**
+- **Programação Orientada a Objetos (POO)**
+- **ArrayList**
+- **Tratamento de exceções**
+- **Git / GitHub**
 
-Retorno: IllegalArgumentException: O cpf não pode ser em branco
 ---
 
-- Salário inválido:
+## 📚 Conceitos Praticados
 
-new Vendedor("Roberto", "12345678900", 0.0, 5000.0)
+Este projeto foi desenvolvido com foco nos seguintes conceitos:
 
-Retorno: IllegalArgumentException: O salário não pode ser igual a 0
+- [x] Classes e objetos
+- [x] Encapsulamento
+- [x] Construtores
+- [x] Getters
+- [x] Classes abstratas
+- [x] Métodos abstratos
+- [x] Herança
+- [x] Polimorfismo
+- [x] Sobrescrita de métodos
+- [x] ArrayList
+- [x] Validação de dados
+- [x] `IllegalArgumentException`
+- [x] Organização de código
+
 ---
 
-- Vendas negativas:
+## 👨‍💻 Autor
 
-new Vendedor("Roberto", "12345678900", 3000.0, -500.0)
+**Kaique Moralez**
 
-Retorno: IllegalArgumentException: O valor é invalido
+- GitHub: [kaimoralez](https://github.com/kaimoralez)
+- LinkedIn: [Kaique Pereira da Conceição](https://www.linkedin.com/in/kaique-p-conceicao/)
