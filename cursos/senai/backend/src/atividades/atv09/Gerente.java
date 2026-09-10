@@ -1,0 +1,17 @@
+package atividades.atv09;
+
+public class Gerente extends Funcionario {
+    public Gerente(String nome, String cpf, double salario){
+        super (nome,cpf,salario);
+    }
+
+    @Override
+    public double calcularBonificacao() {
+        return getSalario() * 0.20;
+    }
+
+    @Override
+    public String cargo() {
+        return "Gerente";
+    }
+}
