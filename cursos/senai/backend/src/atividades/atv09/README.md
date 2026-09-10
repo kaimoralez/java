@@ -322,7 +322,33 @@ Retorno:
 ```text
 IllegalArgumentException: O valor é invalido
 ```
+---
 
+## 🖥️ Demonstração
+
+### Execução com Dados Válidos
+
+O sistema realiza o cálculo da remuneração e da bonificação de diferentes tipos de funcionários.
+
+![Execução com dados válidos](assets/dados_válidos.png)
+
+---
+
+### ⚠️ Validação de Dados
+
+O sistema também possui validações para impedir o cadastro de funcionários com dados inválidos.
+
+#### Nome em branco
+
+![Erro ao informar nome em branco](assets/nome_error.png)
+
+#### CPF em branco
+
+![Erro ao informar CPF em branco](assets/cpf_error.png)
+
+#### Salário inválido
+
+![Erro ao informar salário inválido](assets/salario_error.png)
 ---
 
 ## 🛠️ Tecnologias Utilizadas
